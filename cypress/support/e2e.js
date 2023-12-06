@@ -19,6 +19,7 @@ import 'cypress-mochawesome-reporter/register';
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
+// global test setup for tests
 beforeEach(() => {
     cy.visit('/');
 })

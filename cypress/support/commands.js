@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// use to grab by data-test-id 
 Cypress.Commands.add('getBySel', (selector, ...args) => {
     return cy.get(`[data-testid='${selector}']`, ...args)
   });

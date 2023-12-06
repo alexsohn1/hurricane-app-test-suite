@@ -14,13 +14,6 @@ class BuildingMaterialPage {
         return this
     }
 
-    selectAllOptions() {
-        this.elements.allOptions().each((option) => {
-            cy.wrap(option).click()
-        })
-        return this
-    }
-
     clickNext() {
         this.elements.nextButton().click()
         return this

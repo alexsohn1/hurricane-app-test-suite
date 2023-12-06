@@ -3,12 +3,17 @@ class QuotePage {
     url = '/quote';
 
     elements = {
-        pageHeader: () => cy.contains('Your available plans'),
+        header: () => cy.contains('Your available plans'),
         includeFloodProtectionCheckbox: () => cy.getBySel('price_FloodProtection'),
         includeFloodProtectionText: () => cy.contains('Include Flood Protection'),
         floodProtectionIncludedText: () => cy.contains('Flood Protection Included'),
         selectedCheckbox: () =>  cy.get('.Mui-checked'),
-        priceTexts: () => cy.get('..MuiTypography-root.MuiTypography-h3.MuiTypography-alignCenter')
+        standardPlanCard: () => cy.contains('Standard').parentsUntil('.MuiPaper-rounded'),
+        standardPriceText: () => cy.getBySel('price_Standard'),
+        chooseStandardButton: () => cy.contains('Choose Standard'),
+        completePlanCard: () => cy.contains('Complete').parentsUntil('.MuiPaper-rounded'),
+        completePriceText: () => cy.getBySel('price_Complete'),
+        chooseCompleteButton: () => cy.contains('Choose Complete'),
     }
 
     checkIncludeFloodProtectionOption() {
