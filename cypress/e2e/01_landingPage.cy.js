@@ -14,7 +14,7 @@ describe("Landing page", () => {
         .enterZipCode('1234')
         .clickGetQuoteButton()
         .elements
-        .invalidZipError()
+        .errorMessage()
         .should('be.visible')
         .and('have.text', 'Invalid zip code')
     })
@@ -24,7 +24,7 @@ describe("Landing page", () => {
         .enterZipCode('123456')
         .clickGetQuoteButton()
         .elements
-        .invalidZipError()
+        .errorMessage()
         .should('be.visible')
         .and('have.text', 'Invalid zip code')
     })
@@ -34,7 +34,7 @@ describe("Landing page", () => {
         .enterZipCode('gg&r4')
         .clickGetQuoteButton()
         .elements
-        .invalidZipError()
+        .errorMessage()
         .should('be.visible')
         .and('have.text', 'Invalid zip code');
     })
