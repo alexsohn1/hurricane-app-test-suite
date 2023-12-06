@@ -3,10 +3,9 @@ import BuildingMaterialPage from '../pages/BuildingMaterialPage';
 import WaterProximityPage from '../pages/WaterProximityPage';
 import QuotePage from '../pages/QuotePage';
 
-describe('Water proximity page tests', () => {
+describe('Quote page tests', () => {
 
     beforeEach(() => {
-        cy.visit('/');
         LandingPage
             .enterZipCode(90275)
             .clickGetQuoteButton();
@@ -14,7 +13,7 @@ describe('Water proximity page tests', () => {
             .selectBuildingMaterial('Straw')
             .clickNext()
 
-        cy.intercept('/api/quote').as('quotes');
+        cy.intercept('POST', '/api/quote').as('quotes');
     })
 
     it('TC40: When the user selects Yes option on the Water Proximity page, the Include Flood Protection text should be shown and unchecked by default', () => {

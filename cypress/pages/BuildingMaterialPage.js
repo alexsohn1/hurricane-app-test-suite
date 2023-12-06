@@ -6,7 +6,7 @@ class BuildingMaterialPage {
         allOptions: () => cy.get('.MuiIconButton-label'),
         buildingMaterialOption: (option) => cy.get(`input[value=${option}]`),
         selectedOption: () => cy.get('.Mui-checked'),
-        nextButton: () => cy.get('.MuiButton-label'),
+        nextButton: () => cy.getBySel('submit_cta')
     }
 
     selectBuildingMaterial(option) {

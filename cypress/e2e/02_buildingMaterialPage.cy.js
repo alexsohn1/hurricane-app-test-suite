@@ -1,11 +1,9 @@
 import BuildingMaterialPage from '../pages/BuildingMaterialPage';
 import LandingPage from '../pages/LandingPage';
-import WaterProximityPage from '../pages/WaterProximityPage';
 
 describe("Building Materials", () => {
 
     beforeEach(() => {
-        cy.visit('/');
         LandingPage
             .enterZipCode(90275)
             .clickGetQuoteButton();
@@ -31,5 +29,4 @@ describe("Building Materials", () => {
             .nextButton()
             .should('be.disabled');
     });
-
 })

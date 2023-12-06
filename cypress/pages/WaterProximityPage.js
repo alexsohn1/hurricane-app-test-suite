@@ -6,7 +6,7 @@ class WaterProximityPage {
         yesOption: () => cy.get('input[value=true]'),
         noOption: () => cy.get('input[value=false'),
         selectedOption: () => cy.get('.Mui-checked'),
-        nextButton: () => cy.get('.MuiButton-label')
+        nextButton: () => cy.contains('Next')
     }
 
     selectYesOption() {

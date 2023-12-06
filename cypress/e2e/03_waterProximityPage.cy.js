@@ -5,10 +5,10 @@ import WaterProximityPage from '../pages/WaterProximityPage';
 describe('Water proximity page tests', () => {
 
     beforeEach(() => {
-        cy.visit('/');
         LandingPage
             .enterZipCode(90275)
             .clickGetQuoteButton();
+            
         BuildingMaterialPage
             .selectBuildingMaterial('Straw')
             .clickNext()
@@ -32,6 +32,6 @@ describe('Water proximity page tests', () => {
             WaterProximityPage
             .elements
             .nextButton()
-            .should('not.be.disabled');
+            .should('be.disabled');
     });
 })
