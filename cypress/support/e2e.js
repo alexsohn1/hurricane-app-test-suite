@@ -21,5 +21,9 @@ import 'cypress-mochawesome-reporter/register';
 
 // global test setup for tests
 beforeEach(() => {
-    cy.visit('/');
+    let specName = Cypress.spec.name;
+    console.log(specName);
+    if(!specName.includes('api')){
+        cy.visit('/');
+    }
 })

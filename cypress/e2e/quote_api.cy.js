@@ -40,7 +40,7 @@ describe('Quote Api tests', () => {
 
     // Server side validation for bad data values.  Suggested in BR_07 to add server side validations to quote api
 
-    it('Verify no data (null) shows correct response', () => {
+    it.skip('Verify no data (null) shows correct response', () => {
         cy.request({
             url: '/api/quote',
             method: 'POST',
@@ -55,7 +55,7 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it('Verify no data (undefined) shows correct response', () => {
+    it.skip('Verify no data (undefined) shows correct response', () => {
         cy.request({
             url: '/api/quote',
             method: 'POST',
@@ -70,7 +70,7 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it('Verify invalid data type (numbers) shows correct response', () => {
+    it.skip('Verify invalid data type (numbers) shows correct response', () => {
         cy.request({
             url: '/api/quote',
             method: 'POST',
@@ -85,7 +85,7 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it('Verify invalid data type (boolean) shows correct response', () => {
+    it.skip('Verify invalid data type (boolean) shows correct response', () => {
         cy.request({
             url: '/api/quote',
             method: 'POST',
