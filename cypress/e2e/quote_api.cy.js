@@ -9,7 +9,7 @@ describe('Quote Api tests', () => {
         cy.getQuoteResponse(payload);
 
         cy.get('@quoteResponse').then((response) => {
-            expect(response.status).to.eq(200)
+            expect(response.status).to.deep.eq(200)
             expect(response.body.quote.floodProtection.price).to.not.eq(0)
             expect(response.body.quote.floodProtection.includedByDefault).to.eq(false)
             expect(response.body.quote.plans.complete.price).to.not.eq(0)
@@ -28,7 +28,7 @@ describe('Quote Api tests', () => {
 
 
         cy.get('@quoteResponse').then((response) => {
-            expect(response.status).to.eq(200)
+            expect(response.status).to.deep.eq(200)
             expect(response.body.quote.floodProtection.price).to.not.eq(0)
             expect(response.body.quote.plans.complete.price).to.not.eq(0)
             expect(response.body.quote.plans.standard.price).to.not.eq(0)
@@ -37,9 +37,10 @@ describe('Quote Api tests', () => {
         })
     });
 
-    // Server side validation for bad data values.  Suggested in BR_07 to add server side validations to quote api
+    // Server side validation for bad data values
 
-    it.skip('Verify no data (null) shows correct response', () => {
+    it('Verify no data (null) shows 400 response code', () => {
+        // Prices are shown as 0 in the response instead of validation message. 
         let payload = {
             buildingMaterial: null,
             postalCode: null,
@@ -53,7 +54,8 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it.skip('Verify no data (undefined) shows correct response', () => {
+    it('Verify no data (undefined) shows 400 response code', () => {
+        // Server crashes: BR_27
         let payload = {
             buildingMaterial: undefined,
             postalCode: undefined,
@@ -67,10 +69,11 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it.skip('Verify invalid data type (numbers) shows correct response', () => {
+    it('Verify invalid data type (integers + letters) shows 400 response code', () => {
+        // Server crashes: BR_27
         let payload = {
             buildingMaterial: 121345,
-            postalCode: 121345,
+            postalCode: "asdgasdgasdgasdg",
             waterProximity: 121345
         }
         cy.getQuoteResponse(payload);
@@ -81,7 +84,8 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it.skip('Verify invalid data type (boolean) shows correct response', () => {
+    it('Verify invalid data type (boolean) shows 400 response code', () => {
+        // Prices are shown as 0 in the response instead of validation message. BR_27
         let payload = {
             buildingMaterial: true,
             postalCode: false,
