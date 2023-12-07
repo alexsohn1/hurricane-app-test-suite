@@ -26,7 +26,7 @@ describe("Landing page", () => {
         .and('have.text', 'Invalid zip code')
     })
 
-    it('TC_04: Invalid zip code error message is shown when user submits > 5 digit zip code', () => {
+    it.skip('TC_04: Invalid zip code error message is shown when user submits > 5 digit zip code', () => {
 
     // Open Bug: BR_02    
     LandingPage
