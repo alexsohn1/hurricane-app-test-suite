@@ -26,5 +26,14 @@
 
 // use to grab by data-test-id 
 Cypress.Commands.add('getBySel', (selector, ...args) => {
-    return cy.get(`[data-testid='${selector}']`, ...args)
-  });
+  return cy.get(`[data-testid='${selector}']`, ...args)
+});
+
+Cypress.Commands.add('getQuoteResponse', payload => {
+  cy.request({
+    url: '/api/quote',
+    method: 'POST',
+    body: payload,
+    failOnStatusCode: false
+  }).as('quoteResponse');
+})

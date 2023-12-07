@@ -22,7 +22,8 @@ import 'cypress-mochawesome-reporter/register';
 // global test setup for tests
 beforeEach(() => {
     let specName = Cypress.spec.name;
-    console.log(specName);
+
+    // Only open landing page for UI tests.  Do not open landing page for api tests
     if(!specName.includes('api')){
         cy.visit('/');
     }
