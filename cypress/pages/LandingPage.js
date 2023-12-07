@@ -1,6 +1,7 @@
 class LandingPage {
 
     elements = {
+        header: () => cy.contains('Hurricane Insurance'),
         zipCodeField: () => cy.get(`input[name='postalCode']`),
         getQuoteButton: () => cy.contains('Get a quote'),
         errorMessage: () => cy.get('.MuiFormHelperText-root.Mui-error')

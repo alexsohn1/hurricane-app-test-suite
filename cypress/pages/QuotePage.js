@@ -3,7 +3,7 @@ class QuotePage {
     url = '/quote';
 
     elements = {
-        header: () => cy.contains('Your available plans'),
+        header: () => cy.contains('Your Available Plans'),
         includeFloodProtectionCheckbox: () => cy.getBySel('price_FloodProtection'),
         includeFloodProtectionText: () => cy.contains('Include Flood Protection'),
         floodProtectionIncludedText: () => cy.contains('Flood Protection Included'),

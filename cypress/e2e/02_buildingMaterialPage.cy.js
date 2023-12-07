@@ -9,7 +9,7 @@ describe("Building Materials", () => {
             .clickGetQuoteButton();
     });
 
-    it('When the user enters a valid 5 digit zip-code and submits the form, the user should be navigated to the Building Material question page', () => {
+    it('TC_19: When the user enters a valid 5 digit zip-code and submits the form on the Landing page, the user should be navigated to the Building Material question page', () => {
         cy.url().should('contain', BuildingMaterialPage.url);
 
         BuildingMaterialPage
@@ -18,7 +18,7 @@ describe("Building Materials", () => {
             .should('be.visible');
     });
     
-    it('No options should be selected and the Next button should be disabled by default', () => {
+    it('TC_20 + TC_21: No options should be selected and the Next button should be disabled by default', () => {
         BuildingMaterialPage
             .elements
             .selectedOption()

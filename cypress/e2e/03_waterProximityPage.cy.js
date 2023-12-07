@@ -14,7 +14,7 @@ describe('Water proximity page tests', () => {
             .clickNext()
     })
 
-    it('When the user selects an option and clicks Next on the Water Proximity page, the user should be navigated to the Quote page', () => {
+    it('TC_28: When the user selects an option and clicks Next on the Building material page, the user should be navigated to the Water Proxmity page', () => {
         cy.url().should('contain', WaterProximityPage.url);
 
         WaterProximityPage
@@ -23,7 +23,7 @@ describe('Water proximity page tests', () => {
             .should('be.visible');
     });
 
-    it('No options should be selected and the Next button should be disabled by default', () => {
+    it('TC:29 + TC:30: No options should be selected and the Next button should be disabled by default', () => {
         WaterProximityPage
             .elements
             .selectedOption()
