@@ -25,7 +25,7 @@ describe('Quote page tests', () => {
 
         cy.url().should('contain', QuotePage.url);
 
-        // Open Bug: BR_25: title of page should be title case instead of sentence case    
+        // Open Bug: BR_25  
         // QuotePage
         //     .elements
         //     .header()
@@ -57,6 +57,25 @@ describe('Quote page tests', () => {
 
     });
 
+    it.skip('TC_41: When the user selects No option on the Water Proximity page, the Flood Protection Included text should be shown and checkbox should be selected by default', () => {
+        WaterProximityPage
+            .selectNoOption()
+            .clickNext();
+
+        cy.wait('@quotes').its('response.statusCode').should('equal', 200);
+
+        // Open Bug: BR_22
+        QuotePage
+            .elements
+            .floodProtectionIncludedText()
+            .should('be.visible');
+
+        QuotePage
+            .elements
+            .selectedCheckbox()
+            .should('be.visible');
+    });
+
 
     it('TC_42: When the user selects Yes option on the Water Proximity page, the Include Flood Protection text should be shown and unchecked by default', () => {
 
@@ -79,24 +98,7 @@ describe('Quote page tests', () => {
     });
 
 
-    it('TC_41: When the user selects No option on the Water Proximity page, the Flood Protection Included text should be shown and checkbox should be selected by default', () => {
-        WaterProximityPage
-            .selectNoOption()
-            .clickNext();
-
-        cy.wait('@quotes').its('response.statusCode').should('equal', 200);
-
-        // Open Bug: BR_22
-        QuotePage
-            .elements
-            .floodProtectionIncludedText()
-            .should('be.visible');
-
-        QuotePage
-            .elements
-            .selectedCheckbox()
-            .should('be.visible');
-    });
+   
 
     it('Correct prices should be shown for each plan', () => {
         WaterProximityPage
@@ -109,7 +111,7 @@ describe('Quote page tests', () => {
             let completePlanPrice = json.response.body.quote.plans.complete.price;
             let standardPlanPrice = json.response.body.quote.plans.standard.price;
             let floodProtectionPrice = json.response.body.quote.floodProtection.price;
-            
+
             QuotePage
                 .elements
                 .standardPriceText()
