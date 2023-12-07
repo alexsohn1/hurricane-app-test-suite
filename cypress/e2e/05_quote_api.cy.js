@@ -1,5 +1,5 @@
 describe('Quote Api tests', () => {
-    it('Verify valid request.  Valid 5 digit zipcode | Buildling material - straw | and water proximity - Yes', () => {
+    it('Verify valid request.  Valid 5 digit zip code | Building material - straw | and water proximity - Yes', () => {
         let payload = {
             buildingMaterial: 'straw',
             postalCode: '90001',
@@ -17,7 +17,7 @@ describe('Quote Api tests', () => {
         })
     })
 
-    it.skip('Verify valid request.  Valid 5 digit zipcode | Buildling material - bricks | and water proximity - No', () => {
+    it('Verify valid request.  Valid 5 digit zip code | Building material - bricks | and water proximity - No', () => {
         let payload = {
             buildingMaterial: 'bricks',
             postalCode: '90275',

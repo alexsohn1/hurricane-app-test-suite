@@ -14,7 +14,7 @@ describe('Water proximity page tests', () => {
             .clickNext()
     })
 
-    it('TC_28: When the user selects an option and clicks Next on the Building material page, the user should be navigated to the Water Proxmity page', () => {
+    it('TC_28: When the user selects an option and clicks Next on the Building material page, the user should be navigated to the Water Proximity page', () => {
         cy.url().should('contain', WaterProximityPage.url);
 
         WaterProximityPage
