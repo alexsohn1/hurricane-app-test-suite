@@ -1,5 +1,5 @@
 # hurricane-app-test-suite
-
+Test automation project for testing hurricane application.  Includes Component, end-to-end, and api automation coverage.  
 
 #### Install dependencies
 ```
