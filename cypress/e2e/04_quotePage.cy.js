@@ -86,6 +86,7 @@ describe('Quote page tests', () => {
         
         cy.wait('@quotes').its('response.statusCode').should('equal', 200);
 
+        // Open Bug: BR_22
         QuotePage
             .elements
             .floodProtectionIncludedText()
