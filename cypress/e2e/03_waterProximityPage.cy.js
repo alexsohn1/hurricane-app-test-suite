@@ -8,7 +8,7 @@ describe('Water proximity page tests', () => {
         LandingPage
             .enterZipCode(90275)
             .clickGetQuoteButton();
-            
+
         BuildingMaterialPage
             .selectBuildingMaterial('Straw')
             .clickNext()
@@ -29,7 +29,7 @@ describe('Water proximity page tests', () => {
             .selectedOption()
             .should('not.exist');
 
-            WaterProximityPage
+        WaterProximityPage
             .elements
             .nextButton()
             .should('be.disabled');

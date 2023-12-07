@@ -37,8 +37,8 @@ describe('Quote page tests', () => {
             .elements
             .standardPlanCard()
             .should('be.visible');
-        
-        
+
+
         QuotePage
             .elements
             .chooseStandardButton()
@@ -48,7 +48,7 @@ describe('Quote page tests', () => {
             .elements
             .completePlanCard()
             .should('be.visible');
-            
+
         QuotePage
             .elements
             .chooseCompleteButton()
@@ -56,7 +56,7 @@ describe('Quote page tests', () => {
 
 
     });
-    
+
 
     it('TC_42: When the user selects Yes option on the Water Proximity page, the Include Flood Protection text should be shown and unchecked by default', () => {
 
@@ -77,13 +77,13 @@ describe('Quote page tests', () => {
             .selectedCheckbox()
             .should('not.exist');
     });
-    
+
 
     it('TC_41: When the user selects No option on the Water Proximity page, the Flood Protection Included text should be shown and checkbox should be selected by default', () => {
         WaterProximityPage
             .selectNoOption()
             .clickNext();
-        
+
         cy.wait('@quotes').its('response.statusCode').should('equal', 200);
 
         // Open Bug: BR_22
@@ -104,17 +104,12 @@ describe('Quote page tests', () => {
             .clickNext();
 
         cy.wait('@quotes').its('response.statusCode').should('equal', 200);
-        
+
         cy.get('@quotes').then(json => {
             let completePlanPrice = json.response.body.quote.plans.complete.price;
             let standardPlanPrice = json.response.body.quote.plans.standard.price;
             let floodProtectionPrice = json.response.body.quote.floodProtection.price;
-
-
-            console.log(completePlanPrice);
-            console.log(standardPlanPrice);
-            console.log(floodProtectionPrice);
-
+            
             QuotePage
                 .elements
                 .standardPriceText()
@@ -131,6 +126,6 @@ describe('Quote page tests', () => {
                 .should('contain', `(+$${floodProtectionPrice})`);
         });
 
-       
+
     });
 })

@@ -29,6 +29,8 @@ Cypress.Commands.add('getBySel', (selector, ...args) => {
   return cy.get(`[data-testid='${selector}']`, ...args)
 });
 
+
+// Custom command to get response for quotes api to assert against
 Cypress.Commands.add('getQuoteResponse', payload => {
   cy.request({
     url: '/api/quote',

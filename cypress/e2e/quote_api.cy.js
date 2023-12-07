@@ -42,12 +42,12 @@ describe('Quote Api tests', () => {
     it.skip('Verify no data (null) shows correct response', () => {
         let payload = {
             buildingMaterial: null,
-                postalCode: null,
-                waterProximity: null
+            postalCode: null,
+            waterProximity: null
         }
         cy.getQuoteResponse(payload);
-        
-        
+
+
         cy.get('@quoteResponse').then((response) => {
             expect(response.status).to.deep.eq(400);
         })
@@ -56,12 +56,12 @@ describe('Quote Api tests', () => {
     it.skip('Verify no data (undefined) shows correct response', () => {
         let payload = {
             buildingMaterial: undefined,
-                postalCode: undefined,
-                waterProximity: undefined
+            postalCode: undefined,
+            waterProximity: undefined
         }
         cy.getQuoteResponse(payload);
-        
-        
+
+
         cy.get('@quoteResponse').then((response) => {
             expect(response.status).to.deep.eq(400);
         })
@@ -70,12 +70,12 @@ describe('Quote Api tests', () => {
     it.skip('Verify invalid data type (numbers) shows correct response', () => {
         let payload = {
             buildingMaterial: 121345,
-                postalCode: 121345,
-                waterProximity: 121345
+            postalCode: 121345,
+            waterProximity: 121345
         }
         cy.getQuoteResponse(payload);
-        
-        
+
+
         cy.get('@quoteResponse').then((response) => {
             expect(response.status).to.deep.eq(400);
         })
@@ -84,12 +84,12 @@ describe('Quote Api tests', () => {
     it.skip('Verify invalid data type (boolean) shows correct response', () => {
         let payload = {
             buildingMaterial: true,
-                postalCode: false,
-                waterProximity: true
+            postalCode: false,
+            waterProximity: true
         }
         cy.getQuoteResponse(payload);
-        
-        
+
+
         cy.get('@quoteResponse').then((response) => {
             expect(response.status).to.deep.eq(400);
         })

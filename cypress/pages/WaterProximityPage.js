@@ -10,8 +10,8 @@ class WaterProximityPage {
     }
 
     selectYesOption() {
-       this.elements.yesOption().click() 
-       return this;
+        this.elements.yesOption().click()
+        return this;
     }
 
     selectNoOption() {

@@ -24,7 +24,7 @@ beforeEach(() => {
     let specName = Cypress.spec.name;
 
     // Only open landing page for UI tests.  Do not open landing page for api tests
-    if(!specName.includes('api')){
+    if (!specName.includes('api')) {
         cy.visit('/');
     }
 })

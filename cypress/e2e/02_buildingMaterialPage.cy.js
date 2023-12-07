@@ -17,7 +17,7 @@ describe("Building Materials", () => {
             .header()
             .should('be.visible');
     });
-    
+
     it('TC_20 + TC_21: No options should be selected and the Next button should be disabled by default', () => {
         BuildingMaterialPage
             .elements
